@@ -1,0 +1,9 @@
+E:\Proyectos\Proyectos Individuales\MIchi-Soft-Backend\Authentication\bin\Debug\netcoreapp3.1\Authentication.deps.json
+E:\Proyectos\Proyectos Individuales\MIchi-Soft-Backend\Authentication\bin\Debug\netcoreapp3.1\Authentication.dll
+E:\Proyectos\Proyectos Individuales\MIchi-Soft-Backend\Authentication\bin\Debug\netcoreapp3.1\Authentication.pdb
+E:\Proyectos\Proyectos Individuales\MIchi-Soft-Backend\Authentication\obj\Debug\netcoreapp3.1\Authentication.GeneratedMSBuildEditorConfig.editorconfig
+E:\Proyectos\Proyectos Individuales\MIchi-Soft-Backend\Authentication\obj\Debug\netcoreapp3.1\Authentication.AssemblyInfoInputs.cache
+E:\Proyectos\Proyectos Individuales\MIchi-Soft-Backend\Authentication\obj\Debug\netcoreapp3.1\Authentication.AssemblyInfo.cs
+E:\Proyectos\Proyectos Individuales\MIchi-Soft-Backend\Authentication\obj\Debug\netcoreapp3.1\Authentication.csproj.CoreCompileInputs.cache
+E:\Proyectos\Proyectos Individuales\MIchi-Soft-Backend\Authentication\obj\Debug\netcoreapp3.1\Authentication.dll
+E:\Proyectos\Proyectos Individuales\MIchi-Soft-Backend\Authentication\obj\Debug\netcoreapp3.1\Authentication.pdb
