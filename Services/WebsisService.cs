@@ -22,6 +22,7 @@ namespace Services
             var result = _websisRepository.GetClassRoomByName(classRoom.Name);
             if (result != null)
             {
+                
                 throw new ApplicationException("Ya existe un ambiente registrado con ese nombre");
             }
             else 
