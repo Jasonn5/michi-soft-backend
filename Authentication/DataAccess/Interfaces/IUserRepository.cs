@@ -17,7 +17,7 @@ namespace Authentication.DataAccess.Interfaces
         Task<bool> UpdateUser(User user);
         Task<bool> UpdateUserWithoutEmail(User user);
         Task<IList<string>> GetRoles(IdentityUser user);
-        ICollection<User> List();
+        ICollection<User> List(string search);
         User FindById(int id);
         User FindByUsername(string username);
     }

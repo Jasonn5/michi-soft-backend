@@ -1,4 +1,5 @@
 ﻿using Authentication.Entities;
+using Authentication.Entities.RequestParameters;
 using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace Authentication.Services.Interfaces
         Task<bool> ChangePassword(User user);
         Task<bool> UpdateUser(User user);
         Task<bool> UpdateUserWithoutEmail(User user);
-        ICollection<User> ListUsers();
+        ICollection<User> ListUsers(ProfessorRequestParameters query);
         User FindById(int id);
         Task<IdentityUser> FindIdentityUserByName(string username);
     }

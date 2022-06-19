@@ -6,7 +6,7 @@ namespace Services.Interfaces
 {
     public interface IWebsisService
     {
-        ICollection<ClassRoom> GetClassRoomsByDate();
+        ICollection<ClassRoom> GetClassRoomsByDate(AvailableClassroomsRequestParameters query);
         ICollection<Matter> GetMattersByTeacher(int teacherId);
         ICollection<ClassRoom> ListClassRooms(ClassroomRequestParameters query);
         void UpdateClassRoom(ClassRoom entity);

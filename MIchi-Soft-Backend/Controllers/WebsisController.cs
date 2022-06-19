@@ -29,9 +29,9 @@ namespace MIchi_Soft_Backend.Controllers
 
         [HttpGet]
         [Route("available-classrooms")]
-        public ActionResult<ICollection<Matter>> GetAvailableClassrooms()
+        public ActionResult<ICollection<Matter>> GetAvailableClassrooms([FromQuery] AvailableClassroomsRequestParameters query)
         {
-            return Ok(_websisService.GetClassRoomsByDate());
+            return Ok(_websisService.GetClassRoomsByDate(query));
         }
 
         [HttpPost]

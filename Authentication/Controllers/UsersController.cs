@@ -1,4 +1,5 @@
 ﻿using Authentication.Entities;
+using Authentication.Entities.RequestParameters;
 using Authentication.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -87,9 +88,9 @@ namespace Authentication.Controllers
 
         [HttpGet]
         [Route("")]
-        public ActionResult<ICollection<User>> Get()
+        public ActionResult<ICollection<User>> Get([FromQuery] ProfessorRequestParameters query)
         {
-            return Ok(userService.ListUsers());
+            return Ok(userService.ListUsers(query));
         }
 
         [HttpPatch]

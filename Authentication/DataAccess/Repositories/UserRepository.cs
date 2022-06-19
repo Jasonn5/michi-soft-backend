@@ -37,9 +37,9 @@ namespace Authentication.DataAccess.Repositories
             this.context = context;
         }
 
-        public ICollection<User> List()
+        public ICollection<User> List(string search)
         {
-            var result = context.Set<User>().FromSqlRaw($"dbo.GetProffesors").AsEnumerable().ToList();
+            var result = context.Set<User>().FromSqlRaw($"dbo.GetProffesors  '{search}'").AsEnumerable().ToList();
 
             return result;
         }

@@ -38,9 +38,9 @@ namespace Services
             return classRoom;
         }
 
-        public ICollection<ClassRoom> GetClassRoomsByDate()
+        public ICollection<ClassRoom> GetClassRoomsByDate(AvailableClassroomsRequestParameters query)
         {
-            var classRooms = _websisRepository.GetClassRoomsByDate();
+            var classRooms = _websisRepository.GetClassRoomsByDate(query.Starttime, query.Endtime,query.Date, query.Capacity);
 
             return classRooms.ToList();
         }

@@ -1,5 +1,6 @@
 ﻿using Authentication.DataAccess.Interfaces;
 using Authentication.Entities;
+using Authentication.Entities.RequestParameters;
 using Authentication.Services.Interfaces;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -55,9 +56,9 @@ namespace Authentication.Services
             return userRepository.FindIdentityUserByName(username);
         }
 
-        public ICollection<User> ListUsers()
+        public ICollection<User> ListUsers(ProfessorRequestParameters query)
         {
-            var users = userRepository.List();
+            var users = userRepository.List(query.Search);
             var userList = new List<User>();
 
             foreach (var user in users)
