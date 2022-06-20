@@ -15,12 +15,12 @@ namespace DataAccess.Repositories
     public class WebsisRepository : IWebsisRepository
     {
         private readonly IdentityDbContext _dataAccess; 
-        public readonly string _configuration;
+        //public readonly string _configuration;
 
         public WebsisRepository(IdentityDbContext dataAccess, IConfiguration configuration)
         {
             _dataAccess = dataAccess;
-            this._configuration = configuration.GetConnectionString("MichisoftDatabase");
+            //this._configuration = configuration.GetConnectionString("MichisoftDatabase");
         }
 
         public ClassRoom AddClassRoom(ClassRoom classRoom)
@@ -45,34 +45,36 @@ namespace DataAccess.Repositories
 
         public IEnumerable<ClassRoom> GetClassRoomsByDate(decimal startTime, decimal endTime, DateTime date, int capacity)
         {
-            using (SqlConnection sql = new SqlConnection(_configuration))
-            {
-                using (SqlCommand cmd = new SqlCommand("dbo.GetAvailableClassroomsByDate", sql))
-                {
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.Parameters.Add(new SqlParameter("@StartTime", startTime));
-                    cmd.Parameters.Add(new SqlParameter("@EndTime", endTime));
-                    cmd.Parameters.Add(new SqlParameter("@StartDate", date.ToString("MM/dd/yyyy 00:00:00")));
-                    cmd.Parameters.Add(new SqlParameter("@EndDate", date.ToString("MM/dd/yyyy 23:59:59")));
-                    cmd.Parameters.Add(new SqlParameter("@Capacity ", capacity));
+            //using (SqlConnection sql = new SqlConnection(_configuration))
+            //{
+            //    using (SqlCommand cmd = new SqlCommand("dbo.GetAvailableClassroomsByDate", sql))
+            //    {
+            //        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            //        cmd.Parameters.Add(new SqlParameter("@StartTime", startTime));
+            //        cmd.Parameters.Add(new SqlParameter("@EndTime", endTime));
+            //        cmd.Parameters.Add(new SqlParameter("@StartDate", date.ToString("MM/dd/yyyy 00:00:00")));
+            //        cmd.Parameters.Add(new SqlParameter("@EndDate", date.ToString("MM/dd/yyyy 23:59:59")));
+            //        cmd.Parameters.Add(new SqlParameter("@Capacity ", capacity));
 
-                    var products = new List<ClassRoom>();
-                    sql.Open();
+            //        var products = new List<ClassRoom>();
+            //        sql.Open();
 
-                    using (var reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            products.Add(MapToProduct(reader));
-                        }
-                    }
-                    return products.ToList();
-                }
+            //        using (var reader = cmd.ExecuteReader())
+            //        {
+            //            while (reader.Read())
+            //            {
+            //                products.Add(MapToProduct(reader));
+            //            }
+            //        }
+            //        sql.Close();
+            //        return products.ToList();
+            //    }
 
-            }
-            //var classRooms = _dataAccess.Set<ClassRoom>().FromSqlRaw($"dbo.GetAvailableClassroomsByDate '{startTime}', '{endTime}', '{date.ToString("MM/dd/yyyy 00:00:00")}', '{date.ToString("MM/dd/yyyy 23:59:59")}', {capacity}").AsEnumerable();
-            
-            //return classRooms;
+
+            //}
+            var classRooms = _dataAccess.Set<ClassRoom>().FromSqlRaw($"dbo.GetAvailableClassroomsByDate '{startTime}', '{endTime}', '{date.ToString("MM/dd/yyyy 00:00:00")}', '{date.ToString("MM/dd/yyyy 23:59:59")}', {capacity}").AsEnumerable();
+
+            return classRooms;
         }
 
         public IEnumerable<Matter> GetMattersByTeacher(int teacherId)
@@ -112,16 +114,16 @@ namespace DataAccess.Repositories
             _dataAccess.SaveChanges();
         }
 
-        private ClassRoom MapToProduct(SqlDataReader reader)
-        {
-            return new ClassRoom()
-            {
-                Id = (int)reader["id"],
-                Name = reader["Name"].ToString(),
-                Type = (int)reader["Type"],
-                Capacity = (int)reader["Capacity"],
-                IsEnabled = (bool)reader["IsEnabled"],
-            };
-        }
+        //private ClassRoom MapToProduct(SqlDataReader reader)
+        //{
+        //    return new ClassRoom()
+        //    {
+        //        Id = (int)reader["id"],
+        //        Name = reader["Name"].ToString(),
+        //        Type = (int)reader["Type"],
+        //        Capacity = (int)reader["Capacity"],
+        //        IsEnabled = (bool)reader["IsEnabled"],
+        //    };
+        //}
     }
 }

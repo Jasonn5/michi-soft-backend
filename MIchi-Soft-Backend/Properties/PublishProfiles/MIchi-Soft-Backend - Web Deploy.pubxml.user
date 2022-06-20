@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAErbY3Ow1HUORCzZ3s5/ZFQAAAAACAAAAAAAQZgAAAAEAACAAAAB7Xwr5MUfWSGBBlcLiR+VQ/B2r2NBko7T6cvQAgkK/WgAAAAAOgAAAAAIAACAAAAD8JzZWo7pvs81Thhm/Ab8Sx36fOZHsrfnyBZzhRXrKoYAAAADTm6cgojW/FptQeCCXg+rGJ9SOSSbZInomnRHSO2CTf7UPCZM/S5n+6qh0LXHifPZW1os+wymz03nZow2eCsoCqPbk52Gk4pUbSQiWi0LbjuXGfBiDILlPnA9kDfLCg07rFcO01nx+9AYh/IC0j5YuKLA3mPM8Reo+tsRzMFTDWkAAAABt2HS2KxaQ2oY2t3BQKMEg6dT3fj/UHjgZrQTUwM6/boUKp5eCHCDyvk4jbLeB8RS0klpLpwef/nfWP80EQWNZ</EncryptedPassword>
+    <History>False|2022-06-19T21:34:23.3953012Z;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <EFMigrations Include="DataAccess.Context.MichiSystemContext">
+      <Value>Data Source=tcp:michi-soft-backenddb.database.windows.net,1433%3bInitial Catalog=MIchi-Soft-Backend_db%3bUser Id=michi%40michi-soft-backenddb%3bPassword=Testing.123!</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>
