@@ -90,7 +90,7 @@ namespace MIchi_Soft_Backend.Controllers
         [Route("available-classroom")]
         public ActionResult<ICollection<Matter>> GetAvailableClassroom([FromQuery] AvailableClassroomsRequestParameters query)
         {
-            return Ok(_websisService.GetClassRoomsByDate(query));
+            return Ok(_websisService.GetAvailableClassRoom(query));
         }
     }
 }
