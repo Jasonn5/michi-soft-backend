@@ -102,6 +102,33 @@ namespace MIchi_Soft_Backend.Migrations
                     b.ToTable("BookingDetails");
                 });
 
+            modelBuilder.Entity("DataAccess.Model.MattersByProfessor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ClassroomId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ClassroomName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Day")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("EndHour")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("StartHour")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MattersByProfessor");
+                });
+
             modelBuilder.Entity("Entities.Booking", b =>
                 {
                     b.Property<int>("Id")
@@ -171,8 +198,8 @@ namespace MIchi_Soft_Backend.Migrations
                     b.Property<int?>("ClassRoomId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Day")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Day")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("EndHour")
                         .HasColumnType("decimal(18,2)");

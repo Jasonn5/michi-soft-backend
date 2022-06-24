@@ -9,7 +9,7 @@ namespace DataAccess.Model
         public int ClassroomId { get; set; }
         public string ClassroomName { get; set; }
         public int Id { get; set; }
-        public string Day { get; set; }
+        public int  Day { get; set; }
         public decimal StartHour { get; set; }
         public decimal EndHour { get; set; }
     }

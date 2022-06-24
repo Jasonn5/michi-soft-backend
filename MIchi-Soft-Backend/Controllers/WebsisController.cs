@@ -78,5 +78,19 @@ namespace MIchi_Soft_Backend.Controllers
 
             return Ok(classRoom);
         }
+
+        [HttpGet]
+        [Route("classroom-schedules/{id}")]
+        public ActionResult<ICollection<Matter>> GetClassroomSchedulesByMatter(int id)
+        {
+            return Ok(_websisService.GetClassroomSchedulesByMatter(id));
+        }
+
+        [HttpGet]
+        [Route("available-classroom")]
+        public ActionResult<ICollection<Matter>> GetAvailableClassroom([FromQuery] AvailableClassroomsRequestParameters query)
+        {
+            return Ok(_websisService.GetClassRoomsByDate(query));
+        }
     }
 }

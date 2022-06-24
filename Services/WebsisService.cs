@@ -45,6 +45,27 @@ namespace Services
             return classRooms.ToList();
         }
 
+        public ClassRoom GetAvailableClassRoom(AvailableClassroomsRequestParameters query)
+        {
+            var classRooms = _websisRepository.GetAvailableClassRoom(query.Starttime, query.Endtime, query.Date);
+            if (classRooms == null)
+            {
+
+                throw new ApplicationException("Tu aula la esta reservada, Te sugerimos estas otras:");
+            }
+            else
+            {
+                return classRooms;
+            }
+        }
+
+        public ICollection<ClassroomSchedule> GetClassroomSchedulesByMatter(int matterId)
+        {
+            var classroomSchedules = _websisRepository.GetClassroomSchedulesByMatter(matterId);
+
+            return classroomSchedules.ToList();
+        }
+
         public ICollection<Matter> GetMattersByTeacher(int teacherId)
         {
             var matters = _websisRepository.GetMattersByTeacher(teacherId);

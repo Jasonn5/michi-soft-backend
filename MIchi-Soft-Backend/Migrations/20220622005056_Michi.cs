@@ -101,6 +101,23 @@ namespace MIchi_Soft_Backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "MattersByProfessor",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ClassroomId = table.Column<int>(nullable: false),
+                    ClassroomName = table.Column<string>(nullable: true),
+                    Day = table.Column<int>(nullable: false),
+                    StartHour = table.Column<decimal>(nullable: false),
+                    EndHour = table.Column<decimal>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MattersByProfessor", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
@@ -282,7 +299,7 @@ namespace MIchi_Soft_Backend.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Day = table.Column<string>(nullable: true),
+                    Day = table.Column<int>(nullable: false),
                     StartHour = table.Column<decimal>(nullable: false),
                     EndHour = table.Column<decimal>(nullable: false),
                     ClassRoomId = table.Column<int>(nullable: true),
@@ -403,6 +420,9 @@ namespace MIchi_Soft_Backend.Migrations
 
             migrationBuilder.DropTable(
                 name: "Customizes");
+
+            migrationBuilder.DropTable(
+                name: "MattersByProfessor");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
