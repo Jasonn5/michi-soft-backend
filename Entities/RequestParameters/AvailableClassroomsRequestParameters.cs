@@ -14,5 +14,7 @@ namespace Entities.RequestParameters
         public DateTime Date { get; set; }
 
         public int Capacity { get; set; }
+
+        public int Id { get; set; }
     }
 }

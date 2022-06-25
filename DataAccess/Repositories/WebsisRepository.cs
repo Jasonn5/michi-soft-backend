@@ -129,7 +129,7 @@ namespace DataAccess.Repositories
             };
         }
 
-        public ClassRoom GetAvailableClassRoom(decimal startTime, decimal endTime, DateTime date)
+        public ClassRoom GetAvailableClassRoom(decimal startTime, decimal endTime, DateTime date, int classroomId)
         {
             using (SqlConnection sql = new SqlConnection(_configuration))
             {
@@ -140,6 +140,7 @@ namespace DataAccess.Repositories
                     cmd.Parameters.Add(new SqlParameter("@EndTime", endTime));
                     cmd.Parameters.Add(new SqlParameter("@StartDate", date.ToString("MM/dd/yyyy 00:00:00")));
                     cmd.Parameters.Add(new SqlParameter("@EndDate", date.ToString("MM/dd/yyyy 23:59:59")));
+                    cmd.Parameters.Add(new SqlParameter("@ClassroomId ", classroomId));
 
                     var products = new List<ClassRoom>();
                     sql.Open();

@@ -47,8 +47,8 @@ namespace Services
 
         public ClassRoom GetAvailableClassRoom(AvailableClassroomsRequestParameters query)
         {
-            var classRooms = _websisRepository.GetAvailableClassRoom(query.Starttime, query.Endtime, query.Date);
-            if (classRooms == null)
+            var classRooms = _websisRepository.GetAvailableClassRoom(query.Starttime, query.Endtime, query.Date, query.Id);
+            if (classRooms != null)
             {
 
                 throw new ApplicationException("Tu aula la esta reservada, Te sugerimos estas otras:");
