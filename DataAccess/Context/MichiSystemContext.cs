@@ -20,6 +20,7 @@ namespace DataAccess.Context
         // CUSTOM
         public virtual DbSet<BookingDetail> BookingDetails { get; set; }
         public virtual DbSet<MattersByProfessor> MattersByProfessor { get; set; }
+        public virtual DbSet<AllBooking> AllBookings { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

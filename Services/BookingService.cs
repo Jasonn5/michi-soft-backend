@@ -23,7 +23,7 @@ namespace Services
 
         public ICollection<Booking> List(BookingRequestParameters query)
         {
-            var bookings = _bookingRepository.List(query.Search);
+            var bookings = _bookingRepository.List(query.Search, query.Date);
 
             return bookings.ToList();
         }

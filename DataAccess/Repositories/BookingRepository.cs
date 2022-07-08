@@ -1,8 +1,10 @@
-﻿using DataAccess.Model;
+﻿using Authentication.Entities;
+using DataAccess.Model;
 using DataAccess.Repositories.Interfaces;
 using Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -45,9 +47,20 @@ namespace DataAccess.Repositories
             return booking;
         }
 
-        public ICollection<Booking> List(string search)
+        public ICollection<Booking> List(string search, DateTime date)
         {
-            var bookings = _dataAccess.Set<Booking>().FromSqlRaw($"dbo.BookingByProffesor '{search}'").AsEnumerable();
+            var result  = _dataAccess.Set<AllBooking>().FromSqlRaw($"dbo.GetBookings '{date.ToString("MM/dd/yyyy 00:00:00")}', '{date.ToString("MM/dd/yyyy 23:59:59")}','{search}'").AsEnumerable();
+
+            var bookings = result.Select(r => new Booking
+            {
+                Id = r.Id,
+                Date = r.Date,
+                StartTime = r.StartTime,
+                EndTime = r.EndTime,
+                Reason = r.Reason,
+                Matter = new Matter { Id = r.MatterId, Name = r.MatterName, Group = r.MatterGroup, User = new User { Id = r.UserId, FirstName = r.FirstName, LastName = r.LastName} },
+                ClassRoom = new ClassRoom { Id = r.ClassroomId, Name = r.Name }
+            });
 
             return bookings.ToList();
         }

@@ -10,5 +10,7 @@ namespace Entities.RequestParameters
     {
         [BindProperty]
         public string Search { get; set; }
+
+        public DateTime Date { get; set; }
     }
 }

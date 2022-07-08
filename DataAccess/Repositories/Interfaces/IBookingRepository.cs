@@ -1,4 +1,5 @@
 ﻿using Entities;
+using System;
 using System.Collections.Generic;
 
 namespace DataAccess.Repositories.Interfaces
@@ -7,6 +8,6 @@ namespace DataAccess.Repositories.Interfaces
     {
         Booking Add(Booking booking);
         ICollection<Booking> ListById(int professorId); 
-        ICollection<Booking> List(string search);
+        ICollection<Booking> List(string search, DateTime date);
     }
 }
